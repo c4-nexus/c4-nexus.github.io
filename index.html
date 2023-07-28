@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Listing Page</title>
+  <link rel="stylesheet" href="./styles/styles.css">
+  <script src="./src/main.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="sticky">
+    <div class="logo">Your Logo Here</div>
+    <nav>
+      <select>
+        <option selected>Bags</option>
+        <option>Shoes</option>
+        <!-- Add more categories as needed -->
+      </select>
+    </nav>
+  </header>
+
+  <!-- Product Name and Description -->
+  <div class="category-description">
+    <h2>Category Name</h2>
+    <p>Category short description goes here.</p>
+  </div>
+  
+  <!-- Product Counter -->
+  <div class="product-counter">Products: <span id="product-count">0</span> out of <span id="total-products">0</span></div>
+
+  <!-- Product Grid -->
+  <div class="product-grid">
+    <!-- Product tiles will be dynamically added here -->
+  </div>
+
+  <!-- Filtering Mechanism -->
+  <div class="filtering">
+    <!-- Add your filtering components here -->
+  </div>
+
+  <!-- Sorting Mechanism -->
+  <div class="sorting">
+    <label for="sort-select">Sort by:</label>
+    <select id="sort-select">
+      <option value="nameAsc">Alphabetical (A-Z)</option>
+      <option value="nameDesc">Alphabetical (Z-A)</option>
+      <option value="priceAsc">Price (Low to High)</option>
+      <option value="priceDesc">Price (High to Low)</option>
+    </select>
+  </div>
+
+
+
+  <!-- Load More Button -->
+  <button id="load-more-btn">Load More</button>
+
+  <!-- Footer -->
+  <footer>
+    <ul>
+      <li><a href="#">T&C</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+  </footer>
+</body>
+</html>
