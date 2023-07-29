@@ -72,7 +72,7 @@
         "description": "This is the product description.",
         "thumbnail": "./imgs/product1.jpg",
         "metal": "Platinum",
-        "price": 79.99,
+        "price": 209.99,
         "rating": 4.5,
         "reviews": 50
     },
