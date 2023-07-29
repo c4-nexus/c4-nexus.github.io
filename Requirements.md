@@ -4,7 +4,7 @@
     should load different set of products depending on the category selected. (i.e., Bags
     category should open a PLP page with bags items, Shoes category should open a PLP
     page with shoes items). When a customer opens the page, the first category should
-    be loaded by default.
+    be loaded by default. - done
     c. The header should be ‘sticky’ i.e., whenever customer scrolls down to the page the
     header should remain visible.
 2. Product counter – small section showing how many products are currently displayed in the
