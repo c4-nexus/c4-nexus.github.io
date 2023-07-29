@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Listing Page</title>
   <link rel="stylesheet" href="./styles/styles.css">
-  <script src="./src/main.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.css">
+  <script src="./src/main.js" type="module"></script>
 </head>
+
 <body>
   <!-- Header -->
   <header class="sticky">
     <div class="logo">Your Logo Here</div>
     <nav>
-      <select>
-        <option selected>Bags</option>
-        <option>Shoes</option>
+      <select id="categories-select">
+        <option selected>Engagement rings</option>
+        <option>Wedding rings</option>
+        <option>Jewellery</option>
         <!-- Add more categories as needed -->
       </select>
     </nav>
@@ -22,21 +26,11 @@
 
   <!-- Product Name and Description -->
   <div class="category-description">
-    <h2>Category Name</h2>
-    <p>Category short description goes here.</p>
+    <!-- Product category will be dynamically added here -->
   </div>
-  
+
   <!-- Product Counter -->
-  <div class="product-counter">Products: <span id="product-count">0</span> out of <span id="total-products">0</span></div>
-
-  <!-- Product Grid -->
-  <div class="product-grid">
-    <!-- Product tiles will be dynamically added here -->
-  </div>
-
-  <!-- Filtering Mechanism -->
-  <div class="filtering">
-    <!-- Add your filtering components here -->
+  <div class="product-counter">Products: <span id="product-count">0</span> out of <span id="total-products">0</span>
   </div>
 
   <!-- Sorting Mechanism -->
@@ -50,7 +44,28 @@
     </select>
   </div>
 
-
+  <main>
+    <!-- Filtering Mechanism -->
+    <div class="filtering">
+      <h4>Filter by Price</h4>
+      <div id="price-slider"></div>
+      <div class="metal-filter">
+        <h4>Filter by Metal Type</h4>
+        <label>
+          <input type="checkbox" name="metal" value="Gold"> Gold
+        </label>
+        <label>
+          <input type="checkbox" name="metal" value="Silver"> Silver
+        </label>
+        <label>
+          <input type="checkbox" name="metal" value="Platinum"> Platinum</label>
+      </div>
+    </div>
+    <!-- Product Grid -->
+    <div class="product-grid">
+      <!-- Product tiles will be dynamically added here -->
+    </div>
+  </main>
 
   <!-- Load More Button -->
   <button id="load-more-btn">Load More</button>
@@ -63,5 +78,7 @@
       <li><a href="#">Contact Us</a></li>
     </ul>
   </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.js"></script>
 </body>
+
 </html>

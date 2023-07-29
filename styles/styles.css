@@ -23,14 +23,15 @@ body {
   }
   
   .product-grid {
+    flex: 1;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     padding: 20px;
   }
   
   .product-card {
-    border: 1px solid #ddd;
+    border-style: none;
     padding: 10px;
   }
   
@@ -39,9 +40,42 @@ body {
     max-height: 150px;
     object-fit: cover;
   }
+
+  main {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  #price-slider {
+    margin-bottom: 20px; 
+  }
+
+  #price-slider .noUi-connect {
+    background-color: #007bff; 
+  }
+
+  #price-slider .noUi-handle {
+    background-color: #007bff; 
+  }
   
   .filtering {
+    flex-basis: 250px; 
     padding: 10px;
+  }
+  
+  .metal-filter {
+    margin-top: 20px; 
+  }
+  
+  .metal-filter h4 {
+    margin-bottom: 10px;
+  }
+  
+  .metal-filter label {
+    display: block;
+    margin-bottom: 5px;
   }
   
   .sorting {
