@@ -14,8 +14,6 @@ function filterProducts(products, category, selectedPrices) {
     }else {
         filteredProducts = products.filter(product => product.category == category);
     }
-    console.log(products);
-    console.log(selectedPrices)
     return filteredProducts;
 }
 

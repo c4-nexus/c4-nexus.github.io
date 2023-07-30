@@ -20,5 +20,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     categoriesSelect.addEventListener('change', (event) => handleCategoryChange(event, category, products, categories, renderProductGrid, renderPriceRangeFilters));
 
     const priceInputs = Array.from(document.querySelectorAll('input[name="price"]'));
-    priceInputs.forEach(el => el.addEventListener('click', (event) => handlePriceFiltering(category, products, renderProductGrid)));
+    priceInputs.forEach(el => el.addEventListener('click', () => handlePriceFiltering(category, products, renderProductGrid)));
 });
