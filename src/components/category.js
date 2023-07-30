@@ -12,11 +12,11 @@ function renderCategoryDescription(categories, category) {
 }
 
 // Function to handle category change
-function handleCategoryChange(event, products, categories, renderProductGrid) {
-    const category = event.target.value;
-
-    renderProductGrid(products, category);
-    renderCategoryDescription(categories, category);
+function handleCategoryChange(event, category, products, categories, renderProductGrid, renderPriceRangeFilters) {
+    category[0] = event.target.value;
+    renderProductGrid(products, category[0], null);
+    renderCategoryDescription(categories, category[0]);
+    renderPriceRangeFilters(products, category[0]);
 }
 
 export {

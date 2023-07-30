@@ -1,21 +1,24 @@
 import { renderProductGrid } from './components/products.js';
 import { handleCategoryChange, renderCategoryDescription } from './components/category.js';
 import { getData } from './data.js';
-import { renderPriceRangeFilters } from './components/priceFilter.js'
+import { renderPriceRangeFilters, handlePriceFiltering } from './components/priceFilter.js'
 
 // Add event listeners
 document.addEventListener('DOMContentLoaded', async () => {
-
-    const categoriesSelect = document.getElementById('categories-select');
     const [products, categories] = await Promise.all([getData('products'), getData('categories')]);
+    let category = [];
+
 
     //Initial load
     const initialCategory = 'Engagement rings';
-    renderProductGrid(products, initialCategory);
+    renderProductGrid(products, initialCategory, null);
     renderCategoryDescription(categories, initialCategory);
     renderPriceRangeFilters(products, initialCategory);
 
     //Event handlers
-    categoriesSelect.addEventListener('change', (event) => handleCategoryChange(event, products, categories, renderProductGrid));
+    const categoriesSelect = document.getElementById('categories-select');
+    categoriesSelect.addEventListener('change', (event) => handleCategoryChange(event, category, products, categories, renderProductGrid, renderPriceRangeFilters));
 
+    const priceInputs = Array.from(document.querySelectorAll('input[name="price"]'));
+    priceInputs.forEach(el => el.addEventListener('click', (event) => handlePriceFiltering(category, products, renderProductGrid)));
 });
