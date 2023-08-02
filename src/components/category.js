@@ -1,22 +1,27 @@
+import { getData } from "../data.js";
 import { html, render } from "../lib.js";
 const container = document.querySelector('.category-description');
 
 // Function to render category description
-function renderCategoryDescription(categories, category) {
-    const categoryDescription = categories[category];
+function renderCategoryDescription(ctx) {
+    const categoryDescription = ctx.categories[ctx.category];
 
     const categoryTemplate = html`
-        <h2>${category}</h2>
+        <h2>${ctx.category}</h2>
         <p>${categoryDescription}</p>`
     render(categoryTemplate, container);
 }
 
 // Function to handle category change
-function handleCategoryChange(event, category, products, categories, renderProductGrid, renderPriceRangeFilters) {
-    category[0] = event.target.value;
-    renderProductGrid(products, category[0], null);
-    renderCategoryDescription(categories, category[0]);
-    renderPriceRangeFilters(products, category[0]);
+async function handleCategoryChange(event, ctx) {
+    ctx.category = event.target.value;
+    ctx.products = await getData('products');
+    ctx.selectedPrices = [];
+    ctx.selectedMetals = [];
+    ctx.renderProductGrid(ctx);
+    renderCategoryDescription(ctx);
+    ctx.renderPriceRangeFilters(ctx);
+    ctx.renderMetalTypeFilters(ctx);
 }
 
 export {

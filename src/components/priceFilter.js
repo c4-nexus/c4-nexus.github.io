@@ -1,14 +1,12 @@
 import { html, render } from "../lib.js";
-import { filterProducts } from "../util.js";
 const container = document.querySelector('.price-filter');
 
-function renderPriceRangeFilters(products, category) {
-  const allPrices = filterProducts(products, category, null).map(product => product.price);
+function renderPriceRangeFilters(ctx) {
+  const allPrices = ctx.filteredProducts.map(product => product.price);
   const maxPrice = Math.ceil(Math.max(...allPrices));
-  // const minPrice = Math.floor(Math.min(...allPrices));
+  const minPrice = Math.floor(Math.min(...allPrices));
   const priceRanges = [];
-
-  for (let i = 0; i < maxPrice; i += 50) {
+  for (let i = minPrice; i < maxPrice; i += 50) {
     priceRanges.push(i);
   }
   
@@ -24,16 +22,17 @@ function renderPriceRangeFilters(products, category) {
 
   Array.from(document.querySelectorAll('input[name="price"]')).forEach(input => input.checked = false);
   render(priceRangeTemplate(priceRanges), container);
+  Array.from(document.querySelectorAll('input[name="price"]')).forEach(el => {
+    el.removeEventListener('click', handlePriceFiltering);
+    el.addEventListener('click', () => handlePriceFiltering(ctx))
+  });
 }
 
 
-function handlePriceFiltering(category, products, renderProductGrid) {
-  const selectedPrices = [];
-  if (!category[0]) {
-    category[0] = 'Engagement rings';
-  }
-  Array.from(document.querySelectorAll('input[name="price"]')).forEach(input => input.checked ? selectedPrices.push(input.value) : null);
-  renderProductGrid(products, category[0], selectedPrices);
+function handlePriceFiltering(ctx) {
+  ctx.selectedPrices = [];
+  Array.from(document.querySelectorAll('input[name="price"]')).forEach(input => input.checked ? ctx.selectedPrices.push(input.value) : null);
+  ctx.renderProductGrid(ctx);
 }
 
 

@@ -16,7 +16,7 @@
         "category": "Wedding rings",
         "description": "This is another product description.",
         "thumbnail": "./imgs/product1.jpg",
-        "metal": "Platinum",
+        "metal": "Gold",
         "price": 29.99,
         "rating": 4.2,
         "reviews": 35
@@ -27,7 +27,7 @@
         "category": "Engagement rings",
         "description": "This is the product description.",
         "thumbnail": "./imgs/product1.jpg",
-        "metal": "Platinum",
+        "metal": "Yellow gold",
         "price": 39.99,
         "rating": 4.5,
         "reviews": 50
@@ -38,7 +38,7 @@
         "category": "Wedding rings",
         "description": "This is another product description.",
         "thumbnail": "./imgs/product1.jpg",
-        "metal": "Platinum",
+        "metal": "Rose gold",
         "price": 49.99,
         "rating": 4.2,
         "reviews": 35
@@ -49,7 +49,7 @@
         "category": "Engagement rings",
         "description": "This is the product description.",
         "thumbnail": "./imgs/product1.jpg",
-        "metal": "Platinum",
+        "metal": "White gold",
         "price": 59.99,
         "rating": 4.5,
         "reviews": 50
@@ -60,7 +60,7 @@
         "category": "Wedding rings",
         "description": "This is another product description.",
         "thumbnail": "./imgs/product1.jpg",
-        "metal": "Platinum",
+        "metal": "White gold",
         "price": 69.99,
         "rating": 4.2,
         "reviews": 35
@@ -82,7 +82,7 @@
         "category": "Wedding rings",
         "description": "This is another product description.",
         "thumbnail": "./imgs/product1.jpg",
-        "metal": "Platinum",
+        "metal": "Gold",
         "price": 89.99,
         "rating": 4.2,
         "reviews": 35
@@ -93,7 +93,7 @@
         "category": "Engagement rings",
         "description": "This is the product description.",
         "thumbnail": "./imgs/product1.jpg",
-        "metal": "Platinum",
+        "metal": "Rose gold",
         "price": 99.99,
         "rating": 4.5,
         "reviews": 50
@@ -104,7 +104,7 @@
         "category": "Wedding rings",
         "description": "This is another product description.",
         "thumbnail": "./imgs/product1.jpg",
-        "metal": "Platinum",
+        "metal": "White gold",
         "price": 109.99,
         "rating": 4.2,
         "reviews": 35
@@ -115,7 +115,7 @@
         "category": "Engagement rings",
         "description": "This is the product description.",
         "thumbnail": "./imgs/product1.jpg",
-        "metal": "Platinum",
+        "metal": "Yellow gold",
         "price": 119.99,
         "rating": 4.5,
         "reviews": 50
@@ -155,7 +155,7 @@
     },
     {
         "id": 15,
-        "name": "Product 3",
+        "name": "Product 15",
         "category": "Engagement rings",
         "description": "This is the product description.",
         "thumbnail": "./imgs/product1.jpg",

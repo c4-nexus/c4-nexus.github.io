@@ -1,20 +1,29 @@
-function filterProducts(products, category, selectedPrices) {
-    let filteredProducts = [];
-    if (selectedPrices && selectedPrices.length != 0) {
-        filteredProducts = products.filter(product => product.category == category);
-        filteredProducts = products.filter(product => {
-            let isInRange = false;
-            selectedPrices.forEach(price => {
+function filterProducts(ctx) {
+    ctx.filteredProducts = ctx.products.filter(product => product.category == ctx.category);
+    if (ctx.selectedPrices && ctx.selectedPrices.length != 0) {
+        ctx.filteredProducts = ctx.filteredProducts.filter(product => {
+            let isInFilter = false;
+            ctx.selectedPrices.forEach(price => {
                 if (product.price >= price.split('-')[0] && product.price <= price.split('-')[1]) {
-                    isInRange = true;
+                    isInFilter = true;
                 }
             })
-            return isInRange;
+            return isInFilter;
         })
-    }else {
-        filteredProducts = products.filter(product => product.category == category);
     }
-    return filteredProducts;
+
+    if (ctx.selectedMetals && ctx.selectedMetals.length != 0) {
+        ctx.filteredProducts = ctx.filteredProducts.filter(product => {
+            let isInFilter = false;
+            ctx.selectedMetals.forEach(metal => {
+                if (product.metal == metal) {
+                    isInFilter = true;
+                }
+            })
+            return isInFilter;
+        })
+    }
+    return ctx.filteredProducts;
 }
 
 export { filterProducts };

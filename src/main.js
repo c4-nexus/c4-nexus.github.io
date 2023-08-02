@@ -1,24 +1,38 @@
 import { renderProductGrid } from './components/products.js';
 import { handleCategoryChange, renderCategoryDescription } from './components/category.js';
 import { getData } from './data.js';
-import { renderPriceRangeFilters, handlePriceFiltering } from './components/priceFilter.js'
+import { renderPriceRangeFilters } from './components/priceFilter.js';
+import { filterProducts } from './util.js';
+import { renderMetalTypeFilters } from './components/metalFilter.js'
 
 // Add event listeners
 document.addEventListener('DOMContentLoaded', async () => {
     const [products, categories] = await Promise.all([getData('products'), getData('categories')]);
-    let category = [];
+
+
+    const ctx = {
+        filterProducts,
+        renderProductGrid,
+        renderPriceRangeFilters,
+        renderMetalTypeFilters,
+        products,
+        categories,
+        category: 'Engagement rings',
+        selectedPrices: [],
+        selectedMetals: [],
+        filteredProducts: []
+    }
 
 
     //Initial load
-    const initialCategory = 'Engagement rings';
-    renderProductGrid(products, initialCategory, null);
-    renderCategoryDescription(categories, initialCategory);
-    renderPriceRangeFilters(products, initialCategory);
+    renderProductGrid(ctx);
+    renderCategoryDescription(ctx);
+    renderPriceRangeFilters(ctx);
+    renderMetalTypeFilters(ctx);
 
     //Event handlers
-    const categoriesSelect = document.getElementById('categories-select');
-    categoriesSelect.addEventListener('change', (event) => handleCategoryChange(event, category, products, categories, renderProductGrid, renderPriceRangeFilters));
 
-    const priceInputs = Array.from(document.querySelectorAll('input[name="price"]'));
-    priceInputs.forEach(el => el.addEventListener('click', () => handlePriceFiltering(category, products, renderProductGrid)));
+    //category change
+    const categoriesSelect = document.getElementById('categories-select');
+    categoriesSelect.addEventListener('change', (event) => handleCategoryChange(event, ctx));
 });
