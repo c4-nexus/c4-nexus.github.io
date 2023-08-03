@@ -1,4 +1,4 @@
-export function loadMoreHandler(event, ctx) {
+export function loadMoreHandler(ctx) {
     ctx.gridCounter+= 8;
     ctx.renderProductGrid(ctx);
     

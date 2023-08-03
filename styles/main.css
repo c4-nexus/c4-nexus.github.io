@@ -1,4 +1,5 @@
 @import url(product.css);
+@import url(cart.css);
 @import url(metalFilter.css);
 @import url(priceFilter.css);
 
@@ -37,8 +38,11 @@ body {
 
   .logo {
     font-size: 24px;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #007bff; 
+    text-transform: uppercase; 
   }
-  
   .product-counter {
     padding: 10px;
     text-align: center;

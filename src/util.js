@@ -1,5 +1,6 @@
 function filterProducts(ctx) {
     ctx.filteredProducts = ctx.products.filter(product => product.category == ctx.category);
+    
     if (ctx.selectedPrices && ctx.selectedPrices.length != 0) {
         ctx.filteredProducts = ctx.filteredProducts.filter(product => {
             let isInFilter = false;

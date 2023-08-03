@@ -2,6 +2,7 @@ import { html, render } from '../lib.js';
 const productContainer = document.querySelector('.product-grid');
 const counterContainer = document.querySelector('.product-counter');
 const loadMoreButton = document.querySelector('#load-more-btn');
+const cartAlert = document.getElementById('cartAlert');
 
 
 // Function to render product tiles
@@ -9,7 +10,7 @@ function renderProductGrid(ctx) {
 
     ctx.filteredProducts = ctx.filterProducts(ctx);
 
-    if(ctx.shownProducts.length > ctx.filteredProducts.length) {
+    if (ctx.shownProducts.length > ctx.filteredProducts.length) {
         ctx.gridCounter = 8;
     }
 
@@ -23,10 +24,20 @@ function renderProductGrid(ctx) {
 
     if (ctx.shownProducts.length != ctx.filteredProducts.length) {
         loadMoreButton.style.display = 'block';
-    }else {
+    } else {
         loadMoreButton.style.display = 'none';
     }
-    
+
+    if (ctx.sorting == 'nameAsc') {
+        ctx.shownProducts.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (ctx.sorting == 'nameDesc') {
+        ctx.shownProducts.sort((a, b) => b.name.localeCompare(a.name));
+    } else if (ctx.sorting == 'priceAsc') {
+        ctx.shownProducts.sort((a, b) => a.price - b.price);
+    } else if (ctx.sorting == 'priceDesc') {
+        ctx.shownProducts.sort((a, b) => b.price - a.price);
+    }
+
     const productTemplate = (product) => html`
             <div class="product-card">
             <img src="${product.thumbnail}" alt="${product.name}" />
@@ -35,7 +46,7 @@ function renderProductGrid(ctx) {
             <p>${product.description}</p>
             <p>Price: $${product.price}</p>
             <p>Ratings: ${product.rating} stars</p>
-            <button class="add-to-cart">Add to Cart</button>
+            <button @click= ${onClick} class="add-to-cart">Add to Cart</button>
         </div>`
 
     const countTemplate = (ctx) => html`
@@ -43,6 +54,13 @@ function renderProductGrid(ctx) {
     `
     render(countTemplate(ctx), counterContainer);
     render(ctx.shownProducts.map(productTemplate), productContainer);
+}
+
+function onClick() {
+    cartAlert.style.display = 'block';
+    setTimeout(() => {
+        cartAlert.style.display = 'none';
+    }, 2000);
 }
 
 

@@ -5,6 +5,8 @@ import { renderPriceRangeFilters } from './components/priceFilter.js';
 import { filterProducts } from './util.js';
 import { renderMetalTypeFilters } from './components/metalFilter.js'
 import { loadMoreHandler } from './components/loadMore.js';
+import { renderSortingOptions } from './components/sort.js';
+
 
 // Add event listeners
 document.addEventListener('DOMContentLoaded', async () => {
@@ -23,6 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         selectedMetals: [],
         filteredProducts: [],
         shownProducts: [],
+        sorting: 'nameAsc',
         gridCounter: 8
     }
 
@@ -33,6 +36,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderCategoryDescription(ctx);
     renderPriceRangeFilters(ctx);
     renderMetalTypeFilters(ctx);
+    renderSortingOptions(ctx);
 
     //Event handlers
 
@@ -42,5 +46,5 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     //load more clicked
     const loadMoreButton = document.querySelector('#load-more-btn');
-    loadMoreButton.addEventListener('click', (event) => loadMoreHandler(event, ctx));
+    loadMoreButton.addEventListener('click', () => loadMoreHandler(ctx));
 });
