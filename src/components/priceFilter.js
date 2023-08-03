@@ -6,7 +6,7 @@ function renderPriceRangeFilters(ctx) {
   const maxPrice = Math.ceil(Math.max(...allPrices));
   const minPrice = Math.floor(Math.min(...allPrices));
   const priceRanges = [];
-  for (let i = minPrice; i < maxPrice; i += 50) {
+  for (let i = minPrice; i < maxPrice; i += 1000) {
     priceRanges.push(i);
   }
   
@@ -16,8 +16,8 @@ function renderPriceRangeFilters(ctx) {
 
   const inputRowTemplate = (initialValue) => html`
         <label>
-          <input  type="checkbox" name="price" value=${`${initialValue}-${(initialValue + 49.99).toFixed(2)}`}>
-           ${`${initialValue}-${(initialValue + 49.99).toFixed(2)}`}
+          <input  type="checkbox" name="price" value=${`${initialValue}-${(initialValue + 999.99).toFixed(2)}`}>
+           ${`${initialValue}-${(initialValue + 999.99).toFixed(2)}`}
         </label>`
 
   Array.from(document.querySelectorAll('input[name="price"]')).forEach(input => input.checked = false);

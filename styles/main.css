@@ -9,13 +9,32 @@ body {
   }
   
   header {
+    position: sticky;
+    top: 0;
     background-color: #f2f2f2;
     padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+
+
+  #categories-select {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
   
+  #categories-select li {
+    margin: 0 10px; /* Adjust the margin as per your preference */
+  }
+  
+  #categories-select li a {
+    text-decoration: none;
+    color:inherit;
+  }
+
   .logo {
     font-size: 24px;
   }
