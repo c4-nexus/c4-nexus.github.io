@@ -2,6 +2,7 @@ import { render, html } from '../lib.js';
 
 const sortContainer = document.querySelector('.sorting');
 
+//Function to render sorting options
 export function renderSortingOptions(ctx) {
 
     const sortingTemplate = () => html`
@@ -14,7 +15,7 @@ export function renderSortingOptions(ctx) {
     </select>`
 
     render(sortingTemplate(), sortContainer);
-
+  
     function onClick(event) {
         ctx.sorting = event.target.value;
         ctx.renderProductGrid(ctx);

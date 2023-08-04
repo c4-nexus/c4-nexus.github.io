@@ -13,10 +13,16 @@ function renderCategories(ctx) {
           </ul>`
 
     const categoryTemplate = (category) => html`
-    <li><a href="#">${category}</a></li>`
+    <li><a  @click=${onClick} href="#">${category}</a></li>`
+
+    function onClick(event) {
+        navCategories.forEach(a => a.classList.remove('active'));
+        event.target.classList.add('active');
+    }
 
     render(categoriesTemplate(ctx), catContainer);
-
+    const navCategories = Array.from(document.querySelectorAll('#categories-select a'));
+    navCategories[0].classList.add('active');
 }
 
 

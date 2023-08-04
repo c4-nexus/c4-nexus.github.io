@@ -1,6 +1,9 @@
+//Function to filter products based on multi criteria
 function filterProducts(ctx) {
+    //get products for the specific category
     ctx.filteredProducts = ctx.products.filter(product => product.category == ctx.category);
-    
+
+    //filter based on price
     if (ctx.selectedPrices && ctx.selectedPrices.length != 0) {
         ctx.filteredProducts = ctx.filteredProducts.filter(product => {
             let isInFilter = false;
@@ -12,7 +15,7 @@ function filterProducts(ctx) {
             return isInFilter;
         })
     }
-
+    //filter based on metal type
     if (ctx.selectedMetals && ctx.selectedMetals.length != 0) {
         ctx.filteredProducts = ctx.filteredProducts.filter(product => {
             let isInFilter = false;

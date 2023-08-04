@@ -8,7 +8,7 @@ import { loadMoreHandler } from './components/loadMore.js';
 import { renderSortingOptions } from './components/sort.js';
 
 
-// Add event listeners
+//Start the app
 document.addEventListener('DOMContentLoaded', async () => {
     const [products, categories] = await Promise.all([getData('products'), getData('categories')]);
 
@@ -37,8 +37,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderPriceRangeFilters(ctx);
     renderMetalTypeFilters(ctx);
     renderSortingOptions(ctx);
-
-    //Event handlers
 
     //category change
     const categoriesAnchors = Array.from(document.querySelectorAll('#categories-select a'));

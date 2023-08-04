@@ -1,6 +1,7 @@
 import { html, render } from '../lib.js';
 const container = document.querySelector('.metal-filter');
 
+//Function to render metal filters
 function renderMetalTypeFilters(ctx) {
     const allMetalTypes = ctx.filteredProducts.map(product => product.metal);
     let uniqueMetalTypes = [];

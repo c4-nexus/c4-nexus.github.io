@@ -1,6 +1,7 @@
 import { html, render } from "../lib.js";
 const container = document.querySelector('.price-filter');
 
+//Function to render price filters
 function renderPriceRangeFilters(ctx) {
   const allPrices = ctx.filteredProducts.map(product => product.price);
   const maxPrice = Math.ceil(Math.max(...allPrices));
