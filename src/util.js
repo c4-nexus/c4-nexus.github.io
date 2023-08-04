@@ -8,7 +8,8 @@ function filterProducts(ctx) {
         ctx.filteredProducts = ctx.filteredProducts.filter(product => {
             let isInFilter = false;
             ctx.selectedPrices.forEach(price => {
-                if (product.price >= price.split('-')[0] && product.price <= price.split('-')[1]) {
+                if (product.price * (100 - product.discount) / 100 >= price.split('-')[0] 
+                && product.price * (100 - product.discount) / 100 <= price.split('-')[1]) {
                     isInFilter = true;
                 }
             })
